@@ -15,7 +15,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-const multipartMiddleware = multipart({ uploadDir: './uploads' });
+const multipartMiddleware = multipart({ uploadDir: './uploads', keepExtensions: true });
+
 app.post('/upload', multipartMiddleware, (req, res) => {
   const files = req.files;
   console.log(files);
